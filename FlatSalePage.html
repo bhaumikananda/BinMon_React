@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+        <div id='root'></div>
+    </head>
+    <body>
+        <div id='myFlats'></div>
+    </body>
+</html>
+<script type="text/babel">
+    function BinMon(props){
+        return <h2>{props.flatName}</h2>;
+    }
+    ReactDOM.render(
+        <BinMon flatName="Welcome to your dream flat arcade"/>, document.getElementById('root')
+    );
+
+    function BinMonFlats(props){
+        return (
+            <p>
+                <img src={props.flatImage} alt={props.altName}></img><p></p>
+                <a href={props.flatLink} target="_blank">{props.flatVerbose}</a>
+            </p>
+        );
+    }
+    ReactDOM.render(
+        <div>
+            <BinMonFlats
+            flatImage="./jpg/FlatOne.jpg"
+            altName="First Image"
+            flatLink="https://www.commonfloor.com/listing/3bhk-apartment-for-sale-in-rajarhat-kolkata-at-dlf-new-town-heights/ogp41f93gi4p5nvx"
+            flatVerbose="First Flat Link"/>
+            
+            <BinMonFlats
+            flatImage="./jpg/FlatTwo.jpg"
+            altName="Second Image"
+            flatLink="https://www.commonfloor.com/listing/3bhk-villa-for-sale-in-new-town-action-area-iii-kolkata/hwex10z6ya8efwrb"
+            flatVerbose="Second Flat Link"/>
+            
+            <BinMonFlats
+            flatImage="./jpg/FlatThree.jpg"
+            altName="Third Image"
+            flatLink="https://www.commonfloor.com/listing/3bhk-villa-for-sale-in-new-town-action-area-iii-kolkata/ffeag6hfwscg4149"
+            flatVerbose="Third Flat Link"/>
+        </div>, document.getElementById('myFlats')
+    );
+
+</script>
