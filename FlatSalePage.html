@@ -3,8 +3,7 @@
         <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
         <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-        
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     </head>
     <body>
         <div id='root'></div>
@@ -13,7 +12,13 @@
 </html>
 <script type="text/babel">
     function BinMon(props){
-        return <h2>{props.flatName}</h2>;
+        return <h1 class="display-3">
+                    <span class="border border-primary">
+                        <div class="p-3 mb-2 bg-warning text-dark">
+                            <p class="text-primary">{props.flatName}</p>
+                        </div>    
+                    </span>
+                </h1>;
     }
     ReactDOM.render(
         <BinMon flatName="Welcome to your dream flat arcade"/>, document.getElementById('root')
@@ -21,10 +26,20 @@
 
     function BinMonFlats(props){
         return (
-            <p class="stylesheet">
-                <img class="stylesheet" src={props.flatImage} alt={props.altName}></img><p></p>
-                <a href={props.flatLink} target="_blank">{props.flatVerbose}</a>
-            </p>
+                 <table class="table table-bordered table-hover">
+                    <th>
+                        <p>
+                            <img  class="img-responsive" src={props.flatImage} alt={props.altName}></img><p></p>
+                            <a href={props.flatLink} target="_blank" class="btn btn-primary btn-lg" role="button">{props.flatVerbose}</a>
+                        </p>
+                    </th>
+                    <th>
+                        <p>
+                            <h2> This is a new property</h2>
+                            <p></p>
+                        </p>
+                    </th>
+                </table>
         );
     }
     ReactDOM.render(
@@ -33,19 +48,22 @@
             flatImage="./jpg/FlatOne.jpg"
             altName="First Image"
             flatLink="https://www.commonfloor.com/listing/3bhk-apartment-for-sale-in-rajarhat-kolkata-at-dlf-new-town-heights/ogp41f93gi4p5nvx"
-            flatVerbose="First Flat Link"/>
+            flatVerbose="First Flat Link"
+            flatLocation="India, Kolkata, , Newtown Action Area 1"/>
             
             <BinMonFlats
             flatImage="./jpg/FlatTwo.jpg"
             altName="Second Image"
             flatLink="https://www.commonfloor.com/listing/3bhk-villa-for-sale-in-new-town-action-area-iii-kolkata/hwex10z6ya8efwrb"
-            flatVerbose="Second Flat Link"/>
+            flatVerbose="Second Flat Link"
+            flatLocation="India, Kolkata, , Newtown Action Area 2"/>
             
             <BinMonFlats
             flatImage="./jpg/FlatThree.jpg"
             altName="Third Image"
             flatLink="https://www.commonfloor.com/listing/3bhk-villa-for-sale-in-new-town-action-area-iii-kolkata/ffeag6hfwscg4149"
-            flatVerbose="Third Flat Link"/>
+            flatVerbose="Third Flat Link"
+            flatLocation="India, Kolkata, Newtown Action Area 3"/>
         </div>, document.getElementById('myFlats')
     );
 
